@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>主题模型关键词提取系统</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #f5f5f5;</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="label_title">
+     <property name="text">
+      <string>基于主题模型的关键词提取系统</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 24px;
+font-weight: bold;
+color: #333;
+qproperty-alignment: AlignCenter;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame_main">
+     <property name="styleSheet">
+      <string notr="true">background-color: white;
+border-radius: 10px;
+padding: 15px;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_main">
+      <property name="spacing">
+       <number>20</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QToolBox" name="toolBox">
+          <property name="styleSheet">
+           <string notr="true">QToolBox {
+	background-color: white;
+	border-radius: 8px;
+	border: 1px solid #ddd;
+}
+QToolBox::tab {
+	background-color: #f0f0f0;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-right: 5px;
+}
+QToolBox::tab:selected {
+	background-color: #e0e0e0;
+	font-weight: bold;
+}</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="page_file">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>500</width>
+             <height>300</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>文件选择</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_file">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <property name="leftMargin">
+             <number>15</number>
+            </property>
+            <property name="topMargin">
+             <number>15</number>
+            </property>
+            <property name="rightMargin">
+             <number>15</number>
+            </property>
+            <property name="bottomMargin">
+             <number>15</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_file">
+              <property name="text">
+               <string>选择需要提取关键词的文件</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_desc">
+              <property name="text">
+               <string>支持格式: Word文档(.docx), PDF(.pdf), 图像(.jpg, .png)</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #666;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_file">
+              <property name="spacing">
+               <number>20</number>
+              </property>
+              <property name="leftMargin">
+               <number>50</number>
+              </property>
+              <property name="rightMargin">
+               <number>50</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushButton_file">
+                <property name="text">
+                 <string>选择文件</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+QPushButton:hover {
+	background-color: #45a049;
+}</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_folder">
+                <property name="text">
+                 <string>选择文件夹</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	background-color: #2196F3;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+QPushButton:hover {
+	background-color: #0b7dda;
+}</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_train">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>500</width>
+             <height>300</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>模型训练</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_train">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <property name="leftMargin">
+             <number>15</number>
+            </property>
+            <property name="topMargin">
+             <number>15</number>
+            </property>
+            <property name="rightMargin">
+             <number>15</number>
+            </property>
+            <property name="bottomMargin">
+             <number>15</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_train">
+              <property name="text">
+               <string>模型训练配置</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="gridLayoutWidget">
+              <layout class="QGridLayout" name="gridLayout">
+               <property name="spacing">
+                <number>15</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_model">
+                 <property name="text">
+                  <string>选择模型:</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 14px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="comboBox_model">
+                 <item>
+                  <property name="text">
+                   <string>LSI</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>LDA</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_topics">
+                 <property name="text">
+                  <string>主题数量:</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 14px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="spinBox_topics">
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="value">
+                  <number>10</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="2">
+                <widget class="QSlider" name="horizontalSlider_topics">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="value">
+                  <number>10</number>
+                 </property>
+                 <property name="tickPosition">
+                  <enum>QSlider::TicksBelow</enum>
+                 </property>
+                 <property name="tickInterval">
+                  <number>10</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="2">
+                <widget class="QPushButton" name="pushButton_retrain">
+                 <property name="text">
+                  <string>重训练模型</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+	background-color: #ff9800;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+QPushButton:hover {
+	background-color: #e68a00;
+}</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_corpus">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>500</width>
+             <height>300</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>语料管理</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_corpus">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <property name="leftMargin">
+             <number>15</number>
+            </property>
+            <property name="topMargin">
+             <number>15</number>
+            </property>
+            <property name="rightMargin">
+             <number>15</number>
+            </property>
+            <property name="bottomMargin">
+             <number>15</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_corpus">
+              <property name="text">
+               <string>增加训练语料</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_corpus">
+              <property name="spacing">
+               <number>20</number>
+              </property>
+              <property name="leftMargin">
+               <number>50</number>
+              </property>
+              <property name="rightMargin">
+               <number>50</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushButton_add_file">
+                <property name="text">
+                 <string>添加文件</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+QPushButton:hover {
+	background-color: #45a049;
+}</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_add_folder">
+                <property name="text">
+                 <string>添加文件夹</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	background-color: #2196F3;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+QPushButton:hover {
+	background-color: #0b7dda;
+}</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableView" name="tableView">
+          <property name="styleSheet">
+           <string notr="true">QTableView {
+	border: 1px solid #ddd;
+	border-radius: 8px;
+}
+QHeaderView::section {
+	background-color: #f0f0f0;
+	padding: 8px;
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStatusBar" name="statusBar">
+     <property name="sizeGripEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
